@@ -1,1 +1,1 @@
-exports.API = require("./temp/api.js").API;
+exports.API = require("./lib/api.js").API;
