@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mocha</title>
+    <!-- This will include Mocha's default look & feel -->
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+    <!-- We need Mocha itself -->
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <!-- This will load the assertion library -->
+    <script src="../node_modules/expect.js/index.js"></script>
+    <!-- This will add require.js for loading the AMD-modules -->
+    <script src="../node_modules/requirejs/require.js"></script>
+</head>
+<body>
+<!-- This is the container Mocha will use to display the test results -->
+<div id="mocha">
+</div>
+
+<script>
+    // Setup Mocha
+    mocha.setup('bdd');
+    // Configure the require library. I am using two placeholders so I can use
+    // Grunt to configure the HTML file the specs we want.
+    require.config({
+        baseUrl: "../lib",
+    deps: ["../test/spec/index.js"],
+    callback: mocha.run
+    });
+</script>
+</body>
+</html>
